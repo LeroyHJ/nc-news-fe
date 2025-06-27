@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+import { Link } from 'react-router-dom'
 import './ArticleList.css';
 
 function ArticleList() {
@@ -25,11 +26,15 @@ function ArticleList() {
 console.log(articles)
 
   return (
+    <>
+    <h1>NC NEWS</h1>
     <div className="article-list">
       {articles.map((article) => (
         <div key={article.article_id} className="article-card">
           <img src={article.article_img_url} alt={article.title} />
-          <h2>{article.title}</h2>
+          <Link to={`/articles/${article.article_id}`}>
+            <h2>{article.title}</h2>
+          </Link>
           <p>{article.body}</p>
           <p>By {article.author} in {article.topic}</p>
           <p>🗓 {new Date(article.created_at).toLocaleDateString()}</p>
@@ -37,6 +42,7 @@ console.log(articles)
         </div>
       ))}
     </div>
+    </>
   );
 }
 

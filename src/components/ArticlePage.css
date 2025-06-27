@@ -1,0 +1,17 @@
+.article-page {
+    max-width: 600px;
+    margin: auto;
+    padding: 1rem;
+    font-family: sans-serif;
+}
+
+.article-page img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.meta {
+    color: gray;
+    font-size: 0.9rem;
+}
